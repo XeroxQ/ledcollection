@@ -4,9 +4,10 @@
     "en": "LED-Ring collection",
     "nl": "LED-Ring collectie"
   },
-  "version": "2.0.0",
+  "version": "2.0.1",
   "compatibility": ">=1.5.0",
   "sdk": 2,
+  "brandColor": "#009797",
   "author": {
     "name": "Martijn Poppen",
     "email": "homey@martijnpoppen.nl"
@@ -38,7 +39,11 @@
     "large": "./assets/images/large.png",
     "small": "./assets/images/small.png"
   },
-  "category": ["appliances", "lights", "tools"],
+  "category": [
+    "appliances",
+    "lights",
+    "tools"
+  ],
   "description": {
     "en": "LED Ring patterns for Homey",
     "nl": "LED Ring patronen voor Homey"
@@ -1868,5 +1873,7 @@
       }
     }
   ],
-  "permissions": ["homey:manager:ledring"]
+  "permissions": [
+    "homey:manager:ledring"
+  ]
 }

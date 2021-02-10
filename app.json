@@ -23,6 +23,17 @@
       }
     ]
   },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "martijnpoppen"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/martijnpoppen/ledcollection/issues"
+  },
+  "source": "https://github.com/martijnpoppen/ledcollection",
   "images": {
     "large": "./assets/images/large.png",
     "small": "./assets/images/small.png"

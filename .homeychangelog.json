@@ -28,5 +28,11 @@
   },
   "2.1.1": {
     "en": "Added stroboscope option"
+  },
+  "2.1.2": {
+    "en": "OPT: add stroboscope"
+  },
+  "2.1.3": {
+    "en": "OPT: add stroboscope"
   }
 }

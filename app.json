@@ -8,7 +8,7 @@
     "en": "Customise your LED ring display",
     "nl": "Personaliseer Homey's LED-ringdisplay"
   },
-  "version": "2.0.2",
+  "version": "2.1.0",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "brandColor": "#009797",
@@ -183,6 +183,69 @@
       "title": {
         "en": "Flash - Magenta",
         "nl": "Flits - Magenta"
+      }
+    },
+    {
+      "name": "led_stroboscope_white",
+      "title": {
+        "en": "Stroboscope - White",
+        "nl": "Stroboscoop - Wit"
+      }
+    },
+    {
+      "name": "led_stroboscope_red",
+      "title": {
+        "en": "Stroboscope - Red",
+        "nl": "Stroboscoop - Rood"
+      }
+    },
+    {
+      "name": "led_stroboscope_orange",
+      "title": {
+        "en": "Stroboscope - Orange",
+        "nl": "Stroboscoop - Oranje"
+      }
+    },
+    {
+      "name": "led_stroboscope_yellow",
+      "title": {
+        "en": "Stroboscope - Yellow",
+        "nl": "Stroboscoop - Geel"
+      }
+    },
+    {
+      "name": "led_stroboscope_green",
+      "title": {
+        "en": "Stroboscope - Green",
+        "nl": "Stroboscoop - Groen"
+      }
+    },
+    {
+      "name": "led_stroboscope_cyan",
+      "title": {
+        "en": "Stroboscope - Cyan",
+        "nl": "Stroboscoop - Cyaan"
+      }
+    },
+    {
+      "name": "led_stroboscope_blue",
+      "title": {
+        "en": "Stroboscope - Blue",
+        "nl": "Stroboscoop - Blauw"
+      }
+    },
+    {
+      "name": "led_stroboscope_purple",
+      "title": {
+        "en": "Stroboscope - Purple",
+        "nl": "Stroboscoop - Paars"
+      }
+    },
+    {
+      "name": "led_stroboscope_magenta",
+      "title": {
+        "en": "Stroboscope - Magenta",
+        "nl": "Stroboscoop - Magenta"
       }
     },
     {

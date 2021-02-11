@@ -116,6 +116,28 @@ class App extends Homey.App {
             )
           ),
           [
+            { id: "led_stroboscope_white", colors: [[255, 255, 255]] },
+            { id: "led_stroboscope_red", colors: [[255, 0, 0]] },
+            { id: "led_stroboscope_orange", colors: [[255, 85, 0]] },
+            { id: "led_stroboscope_yellow", colors: [[255, 255, 0]] },
+            { id: "led_stroboscope_green", colors: [[0, 255, 0]] },
+            { id: "led_stroboscope_cyan", colors: [[0, 255, 255]] },
+            { id: "led_stroboscope_blue", colors: [[0, 0, 255]] },
+            { id: "led_stroboscope_purple", colors: [[64, 0, 255]] },
+            { id: "led_stroboscope_magenta", colors: [[255, 0, 255]] },
+          ].map((screensaver) =>
+            Object.assign(
+              {
+                generator: this.generateFlash,
+                options: Object.assign(
+                  { fps: 99, tfps: 99, rpm: 0 },
+                  screensaver.options
+                ),
+              },
+              screensaver
+            )
+          ),
+          [
             { id: "led_solid_white", colors: [[255, 255, 255]] },
             { id: "led_solid_red", colors: [[255, 0, 0]] },
             { id: "led_solid_orange", colors: [[255, 85, 0]] },

@@ -4,6 +4,10 @@
     "en": "LED-Ring collection",
     "nl": "LED-Ring collectie"
   },
+  "description": {
+      "en": "Customise your LED ring display",
+      "nl": "Personaliseer Homey's LED-ringdisplay"
+  },
   "version": "2.0.1",
   "compatibility": ">=1.5.0",
   "sdk": 2,
@@ -44,10 +48,6 @@
     "lights",
     "tools"
   ],
-  "description": {
-    "en": "LED Ring patterns for Homey",
-    "nl": "LED Ring patronen voor Homey"
-  },
   "dependencies": {
     "net": "*"
   },

@@ -22,5 +22,8 @@
   },
   "2.0.2": {
     "en": "Updated to SDK 2 - Homey v5 support - New Developer"
+  },
+  "2.1.0": {
+    "en": "Added stroboscope option"
   }
 }

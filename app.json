@@ -5,10 +5,10 @@
     "nl": "LED-Ring collectie"
   },
   "description": {
-      "en": "Customise your LED ring display",
-      "nl": "Personaliseer Homey's LED-ringdisplay"
+    "en": "Customise your LED ring display",
+    "nl": "Personaliseer Homey's LED-ringdisplay"
   },
-  "version": "2.0.1",
+  "version": "2.0.2",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "brandColor": "#009797",

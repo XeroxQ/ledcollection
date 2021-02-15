@@ -37,5 +37,8 @@
   },
   "2.2.0": {
     "en": "Added stroboscope - App rewrite"
+  },
+  "2.2.1": {
+    "en": "Update stroboscope"
   }
 }

@@ -8,7 +8,7 @@
     "en": "Customise your LED ring display",
     "nl": "Personaliseer Homey's LED-ringdisplay"
   },
-  "version": "2.2.1",
+  "version": "2.2.2",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "brandColor": "#009797",
@@ -36,9 +36,11 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/martijnpoppen/ledcollection/issues"
+    "url": "https://community.athom.com/t/app-led-ring-collection/44946"
   },
   "source": "https://github.com/martijnpoppen/ledcollection",
+  "homeyCommunityTopicId": 44946,
+  "support": "https://community.athom.com/t/app-led-ring-collection/44946",
   "images": {
     "large": "./assets/images/large.png",
     "small": "./assets/images/small.png"

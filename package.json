@@ -3,9 +3,7 @@
     "generate": "node scripts/generate-json.js"
   },
   "devDependencies": {
-    "homey": "^2.9.3"
-  },
-  "dependencies": {
+    "homey": "^2.9.3",
     "fs": "^0.0.1-security"
   }
 }

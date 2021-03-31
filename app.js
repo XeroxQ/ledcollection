@@ -46,9 +46,9 @@ class App extends Homey.App {
     this.log("updateSettings - New settings:", settings);
     this.appSettings = settings;
     this.saveSettings();
-    
-    if(restart) {
-        this.log("Restart the app.");
+
+    if (restart) {
+      this.log("Restart the app.");
     }
   }
 

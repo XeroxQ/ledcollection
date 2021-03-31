@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- The '/homey.js' script must be included in your settings view to work -->
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+    <style>
+        fieldset legend,
+        .hy-fieldset:not(.hy-nostyle) legend {
+            font-size: 14px !important;
+        }
+
+        .field.row {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 data-i18n="settings.title"></h1>
+    <p data-i18n="settings.subtitle"></p>
+    <div id="SCREENSAVER_SETTINGS"></div>
+    <p id="error" style="color: red;"></p>
+    <p id="loading" style="color: #0000FF;"></p>
+    <p id="success" style="color: #5fd225;"></p>
+    <button id="save" class="right">Save changes</button>
+    <button id="select" class="left">Select all</button>
+    <button id="deselect" class="left">Deselect all</button>
+
+    <script src="./settings.js"></script>
+
+</body>
+
+</html>

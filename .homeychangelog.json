@@ -49,5 +49,8 @@
   },
   "2.3.1": {
     "en": "NEW: update performance and implement disable/enable per screensaver"
+  },
+  "2.4.0": {
+    "en": "NEW: add dimmed spectrum - Sort screensavers on i18n name"
   }
 }

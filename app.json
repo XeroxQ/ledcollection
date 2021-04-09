@@ -8,7 +8,7 @@
     "en": "Customise your LED ring display",
     "nl": "Personaliseer Homey's LED-ringdisplay"
   },
-  "version": "2.3.1",
+  "version": "2.4.0",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "brandColor": "#009797",
@@ -2203,6 +2203,14 @@
       "title": {
         "en": "Eyes - Magenta & Blue",
         "nl": "Ogen - Magenta & Blauw"
+      },
+      "enabled": true
+    },
+    {
+      "name": "led_spectrum_dimmed",
+      "title": {
+        "en": "Spectrum - dimmed",
+        "nl": "Spectrum - gedimd"
       },
       "enabled": true
     }

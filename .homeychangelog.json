@@ -52,5 +52,8 @@
   },
   "2.4.0": {
     "en": "NEW: add dimmed spectrum - Sort screensavers on i18n name"
+  },
+  "2.4.1": {
+    "en": "Improve performance"
   }
 }

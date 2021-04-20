@@ -55,5 +55,8 @@
   },
   "2.4.1": {
     "en": "Improve performance"
+  },
+  "2.4.2": {
+    "en": "Decrease app size"
   }
 }

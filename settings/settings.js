@@ -7,7 +7,9 @@ function onHomeyReady(Homey) {
       return;
     }
 
-    const screensavers = data["SCREENSAVERS"];
+    const currentLang = data["LANGUAGE"];
+    const screensavers = data["SCREENSAVERS"].sort((a, b) => a.title[currentLang].localeCompare(b.title[currentLang]));
+
     emptyFieldSet();
     Object.keys(screensavers).forEach(function (key, index) {
       const inputWrapper = document.getElementById("SCREENSAVER_SETTINGS");
@@ -24,7 +26,7 @@ function onHomeyReady(Homey) {
         '<label for="' +
         screensavers[key].name +
         '">' +
-        screensavers[key].title.en +
+        screensavers[key].title[currentLang] +
         '</label><input type="checkbox" name="' +
         screensavers[key].name +
         '" ' +

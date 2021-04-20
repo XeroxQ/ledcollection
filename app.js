@@ -7,6 +7,8 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 const ManagerSettings = Homey.ManagerSettings;
 const _settingsKey = `${Homey.manifest.id}.settings`;
+const getLanguage = Homey.ManagerI18n.getLanguage();
+const currentLang = getLanguage === 'nl' ? 'nl' : 'en';
 
 class App extends Homey.App {
   async onInit() {
@@ -28,6 +30,18 @@ class App extends Homey.App {
         this.log("initSettings - Found settings key", _settingsKey);
         this.appSettings = ManagerSettings.get(_settingsKey);
 
+        if(this.appSettings.SCREENSAVERS.length < Homey.manifest.screensavers.length) {
+            this.log(`[InitSettings] - Adding extra screensavers`);
+            const difference = Homey.manifest.screensavers.length - this.appSettings.SCREENSAVERS.length;
+            const newScreensavers = Homey.manifest.screensavers.slice(-difference);
+
+            this.appSettings.SCREENSAVERS = [...this.appSettings.SCREENSAVERS, ...newScreensavers];
+            this.log(`[InitSettings] - Added`, newScreensavers);
+        }
+
+        this.appSettings = {...this.appSettings, LANGUAGE: currentLang};
+        this.log(`[InitSettings] - Set language to`, currentLang);
+
         if (this.appSettings) {
           this.saveSettings();
         }
@@ -36,7 +50,7 @@ class App extends Homey.App {
       }
 
       this.log(`Initializing ${_settingsKey} with defaults`);
-      this.updateSettings({ SCREENSAVERS: Homey.manifest.screensavers }, false);
+      this.updateSettings({ SCREENSAVERS: Homey.manifest.screensavers, LANGUAGE: currentLang }, false);
     } catch (err) {
       this.error(err);
     }
@@ -63,7 +77,7 @@ class App extends Homey.App {
   }
 
   initScreenSavers() {
-    generatedScreensavers.forEach(async (screensaver) => {
+    generatedScreensavers.sort((a, b) => a.title[currentLang].localeCompare(b.title[currentLang])).forEach(async (screensaver) => {
       const matchedScreensaver = this.appSettings.SCREENSAVERS.find(
         (s) => s.name === screensaver.id
       );

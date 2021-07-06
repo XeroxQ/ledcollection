@@ -8,7 +8,7 @@
     "en": "Customise your LED ring display",
     "nl": "Personaliseer Homey's LED-ringdisplay"
   },
-  "version": "2.4.2",
+  "version": "2.4.3",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "brandColor": "#009797",

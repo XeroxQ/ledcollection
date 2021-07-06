@@ -1,9 +1,7 @@
 "use strict";
 const Homey = require("homey");
 const generatedScreensavers = require("./assets/json/generated-screensavers.json");
-
-const util = require("util");
-const setTimeoutPromise = util.promisify(setTimeout);
+const { sleep } = require('./lib/helpers');
 
 const ManagerSettings = Homey.ManagerSettings;
 const _settingsKey = `${Homey.manifest.id}.settings`;
@@ -88,7 +86,7 @@ class App extends Homey.App {
         const animation = new Homey.LedringAnimation(screensaver);
 
         await animation.register();
-        await setTimeoutPromise(1 * 1000, "waiting is done");
+        await sleep(1000);
         await animation.registerScreensaver(screensaver.id);
       }
     });

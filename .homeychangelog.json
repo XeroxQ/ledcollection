@@ -61,5 +61,8 @@
   },
   "2.4.3": {
     "en": "FIX: timeout on adding screensavers"
+  },
+  "2.4.4": {
+    "en": "Branding"
   }
 }

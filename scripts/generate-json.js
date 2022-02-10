@@ -19,6 +19,8 @@ const main = async () => {
       )});
   }
 
+  console.log("Generating Done!");
+
   return fs.writeFileSync(
     `${__dirname}/../assets/json/generated-screensavers.json`,
     JSON.stringify(matchedGenerators),

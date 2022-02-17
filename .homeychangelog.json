@@ -70,5 +70,8 @@
   },
   "2.5.1": {
     "en": "FIX: error on settings page"
+  },
+  "2.5.2": {
+    "en": "FIX: issue with saving screensavers"
   }
 }

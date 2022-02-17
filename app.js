@@ -63,7 +63,8 @@ class App extends Homey.App {
   }
 
   updateSettings(settings, restart = true) {
-    this.log("updateSettings - New settings:", settings);
+    this.log("updateSettings - New settings:", {...settings, SCREENSAVERS: []});
+    console.dir(settings.SCREENSAVERS, {'maxArrayLength': null})
     this.appSettings = settings;
     this.saveSettings();
 

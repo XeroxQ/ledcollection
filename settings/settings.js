@@ -8,30 +8,30 @@ function onHomeyReady(Homey) {
     }
 
     const currentLang = data["LANGUAGE"];
-    let screensavers = data["SCREENSAVERS"];
+    let _screensavers = data["SCREENSAVERS"];
 
     emptyFieldSet();
     
-    screensavers = Object.values(screensavers).sort((a, b) => a.title[currentLang].localeCompare(b.title[currentLang]));
+    _screensavers = Object.values(_screensavers).sort((a, b) => a.title[currentLang].localeCompare(b.title[currentLang]));
     
-    Object.keys(screensavers).forEach(function (key, index) {
+    Object.keys(_screensavers).forEach(function (key, index) {
       const inputWrapper = document.getElementById("SCREENSAVER_SETTINGS");
       let input = document.createElement("div");
       let checked = "";
-      if (screensavers[key].enabled) {
+      if (_screensavers[key].enabled) {
         checked = "checked";
       }
 
-      input.id = screensavers[key].name;
+      input.id = _screensavers[key].name;
       input.classList.add("field");
       input.classList.add("row");
       input.innerHTML =
         '<label for="' +
-        screensavers[key].name +
+        _screensavers[key].name +
         '">' +
-        screensavers[key].title[currentLang] +
+        _screensavers[key].title[currentLang] +
         '</label><input type="checkbox" name="' +
-        screensavers[key].name +
+        _screensavers[key].name +
         '" ' +
         checked +
         "/>";
@@ -39,7 +39,7 @@ function onHomeyReady(Homey) {
       inputWrapper.appendChild(input);
     });
 
-    initSave(data);
+    initSave(data, _screensavers);
     initSelect();
   };
 
@@ -60,13 +60,13 @@ function emptyFieldSet() {
   fieldSetWrapper.innerHTML = "";
 }
 
-function initSave(_settings) {
+function initSave(_settings, _screensavers) {
   const error = document.getElementById("error");
   const loading = document.getElementById("loading");
   const success = document.getElementById("success");
 
   document.getElementById("save").addEventListener("click", function (e) {
-    let SCREENSAVERS_OBJECT = _settings.SCREENSAVERS;
+    let SCREENSAVERS_OBJECT = _screensavers;
 
     const inputs = SCREENSAVER_SETTINGS.getElementsByTagName("input");
     let index = 0;

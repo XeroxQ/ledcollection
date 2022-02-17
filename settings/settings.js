@@ -8,9 +8,12 @@ function onHomeyReady(Homey) {
     }
 
     const currentLang = data["LANGUAGE"];
-    const screensavers = data["SCREENSAVERS"].sort((a, b) => a.title[currentLang].localeCompare(b.title[currentLang]));
+    let screensavers = data["SCREENSAVERS"];
 
     emptyFieldSet();
+    
+    screensavers = Object.values(screensavers).sort((a, b) => a.title[currentLang].localeCompare(b.title[currentLang]));
+    
     Object.keys(screensavers).forEach(function (key, index) {
       const inputWrapper = document.getElementById("SCREENSAVER_SETTINGS");
       let input = document.createElement("div");
@@ -73,7 +76,8 @@ function initSave(_settings) {
     }
 
     const settings = {
-      SCREENSAVERS: SCREENSAVERS_OBJECT,
+      LANGUAGE: _settings.LANGUAGE,
+      SCREENSAVERS: SCREENSAVERS_OBJECT
     };
 
     // ----------------------------------------------

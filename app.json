@@ -1,5 +1,9 @@
 {
   "id": "openmindnl.ledcollection",
+  "version": "3.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "brandColor": "#000000",
   "name": {
     "en": "LED-Ring collection",
     "nl": "LED-Ring collectie"
@@ -8,10 +12,6 @@
     "en": "Customise your LED ring display",
     "nl": "Personaliseer Homey's LED-ringdisplay"
   },
-  "version": "2.5.4",
-  "compatibility": ">=1.5.0",
-  "sdk": 2,
-  "brandColor": "#000000",
   "author": {
     "name": "Martijn Poppen",
     "email": "homey@martijnpoppen.nl"
@@ -2247,6 +2247,12 @@
       "enabled": true
     }
   ],
+  "api": {
+    "settings": {
+      "method": "put",
+      "path": "/settings/"
+    }
+  },
   "permissions": [
     "homey:manager:ledring"
   ]

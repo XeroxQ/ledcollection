@@ -3,14 +3,15 @@ const Homey = require("homey");
 const generatedScreensavers = require("./assets/json/generated-screensavers.json");
 const { sleep, getDifference } = require('./lib/helpers');
 
-const ManagerSettings = Homey.ManagerSettings;
 const _settingsKey = `${Homey.manifest.id}.settings`;
-const getLanguage = Homey.ManagerI18n.getLanguage();
+
 let currentLang = 'en';
 
 class App extends Homey.App {
   async onInit() {
-    this.log(`${Homey.manifest.id} - ${Homey.manifest.version} started...`);
+    this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
+
+    const getLanguage = this.homey.i18n.getLanguage();
 
     currentLang = getLanguage === 'nl' ? 'nl' : 'en';
 
@@ -21,7 +22,7 @@ class App extends Homey.App {
   async initSettings() {
     try {
       let settingsInitialized = false;
-      ManagerSettings.getKeys().forEach((key) => {
+      this.homey.settings.getKeys().forEach((key) => {
         if (key == _settingsKey) {
           settingsInitialized = true;
         }
@@ -30,14 +31,14 @@ class App extends Homey.App {
 
       if (settingsInitialized) {
         this.log("initSettings - Found settings key", _settingsKey);
-        this.appSettings = ManagerSettings.get(_settingsKey);
+        this.appSettings = this.homey.settings.get(_settingsKey);
 
-        if(this.appSettings.SCREENSAVERS.length < Homey.manifest.screensavers.length) {
+        if(this.appSettings.SCREENSAVERS.length < this.homey.manifest.screensavers.length) {
             this.log(`[InitSettings] - Adding extra screensavers`);
         
             const newScreensavers = [
-                ...getDifference(this.appSettings.SCREENSAVERS, Homey.manifest.screensavers),
-                ...getDifference(Homey.manifest.screensavers, this.appSettings.SCREENSAVERS)
+                ...getDifference(this.appSettings.SCREENSAVERS, this.homey.manifest.screensavers),
+                ...getDifference(this.homey.manifest.screensavers, this.appSettings.SCREENSAVERS)
             ];
        
             this.appSettings.SCREENSAVERS = [...this.appSettings.SCREENSAVERS, ...newScreensavers];
@@ -56,7 +57,7 @@ class App extends Homey.App {
       }
 
       this.log(`Initializing ${_settingsKey} with defaults`);
-      this.updateSettings({ SCREENSAVERS: Homey.manifest.screensavers, LANGUAGE: currentLang }, false);
+      this.updateSettings({ SCREENSAVERS: this.homey.manifest.screensavers, LANGUAGE: currentLang }, false);
     } catch (err) {
       this.error(err);
     }
@@ -80,7 +81,7 @@ class App extends Homey.App {
     }
 
     this.log("Saved settings.");
-    ManagerSettings.set(_settingsKey, this.appSettings);
+    this.homey.settings.set(_settingsKey, this.appSettings);
   }
 
   initScreenSavers() {
@@ -92,11 +93,10 @@ class App extends Homey.App {
       if (matchedScreensaver && matchedScreensaver.enabled) {
         this.log(`Registering: ${screensaver.id}`);
 
-        const animation = new Homey.LedringAnimation(screensaver);
+        let animation = await this.homey.ledring.createAnimation(screensaver);
 
-        await animation.register();
         await sleep(1000);
-        await animation.registerScreensaver(screensaver.id);
+        await await this.homey.ledring.registerScreensaver(screensaver.id, animation);
       }
     });
   }

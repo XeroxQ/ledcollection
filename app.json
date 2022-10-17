@@ -282,6 +282,14 @@
       "enabled": true
     },
     {
+    "name": "led_solid_black",
+    "title": {
+      "en": "Off",
+      "nl": "Uit"
+    },
+    "enabled": true
+  },
+    {
       "name": "led_solid_white",
       "title": {
         "en": "Solid - White",
@@ -2257,11 +2265,13 @@
     },
     "setScreensaver": {
       "method": "post",
-      "path": "/screensaver/:id"
+      "path": "/screensaver/:id",
+      "public": true
     },
     "getScreensavers": {
       "method": "get",
-      "path": "/screensavers"
+      "path": "/screensavers",
+      "public": true
     }
   },
   "permissions": [

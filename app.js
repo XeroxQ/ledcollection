@@ -90,13 +90,14 @@ class App extends Homey.App {
       );
 
       if (matchedScreensaver && matchedScreensaver.enabled) {
-        this.log(`Registering: ${screensaver.id}`);
-
-
+        this.log(`Create animation: ${screensaver.id}`);
+        
         this.animations[`${screensaver.id}`] = await this.homey.ledring.createAnimation(screensaver);
 
         await sleep(1000);
-        await await this.homey.ledring.registerScreensaver(screensaver.id, this.animations[`${screensaver.id}`]);
+
+        this.log(`Registering: ${screensaver.id}`);
+        await this.homey.ledring.registerScreensaver(screensaver.id, this.animations[`${screensaver.id}`]);
       }
     });
   }

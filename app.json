@@ -30,7 +30,10 @@
   },
   "contributing": {
     "donate": {
-      "paypal": {
+"paypal": {
+        "username": "martijnpoppen"
+      },
+      "bunq": {
         "username": "martijnpoppen"
       }
     }
@@ -2251,7 +2254,17 @@
     "settings": {
       "method": "put",
       "path": "/settings/"
-    }
+    },
+    "setScreensaver": {
+        "method": "post",
+        "path": "/screensaver/:id",
+        "public": true
+      },
+      "getScreensavers": {
+        "method": "get",
+        "path": "/screensavers",
+        "public": true
+      }
   },
   "permissions": [
     "homey:manager:ledring"

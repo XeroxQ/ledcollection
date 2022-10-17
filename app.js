@@ -5,15 +5,13 @@ const { sleep, getDifference } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 
-let currentLang = 'en';
-
 class App extends Homey.App {
   async onInit() {
     this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
 
     const getLanguage = this.homey.i18n.getLanguage();
 
-    currentLang = getLanguage === 'nl' ? 'nl' : 'en';
+    this.currentLang = getLanguage === 'nl' ? 'nl' : 'en';
 
     await this.initSettings();
     await this.initScreenSavers();
@@ -46,8 +44,8 @@ class App extends Homey.App {
         }
 
 
-        this.appSettings = {...this.appSettings, LANGUAGE: currentLang};
-        this.log(`[InitSettings] - Set language to`, currentLang);
+        this.appSettings = {...this.appSettings, LANGUAGE: this.currentLang};
+        this.log(`[InitSettings] - Set language to`, this.currentLang);
 
         if (this.appSettings) {
           this.saveSettings();
@@ -57,7 +55,7 @@ class App extends Homey.App {
       }
 
       this.log(`Initializing ${_settingsKey} with defaults`);
-      this.updateSettings({ SCREENSAVERS: this.homey.manifest.screensavers, LANGUAGE: currentLang }, false);
+      this.updateSettings({ SCREENSAVERS: this.homey.manifest.screensavers, LANGUAGE: this.currentLang }, false);
     } catch (err) {
       this.error(err);
     }
@@ -86,7 +84,7 @@ class App extends Homey.App {
 
   initScreenSavers() {
     this.animations = {};
-    generatedScreensavers.sort((a, b) => a.title[currentLang].localeCompare(b.title[currentLang])).forEach(async (screensaver) => {
+    generatedScreensavers.sort((a, b) => a.title[this.currentLang].localeCompare(b.title[this.currentLang])).forEach(async (screensaver) => {
       const matchedScreensaver = this.appSettings.SCREENSAVERS.find(
         (s) => s.name === screensaver.id
       );

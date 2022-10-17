@@ -3,7 +3,7 @@ module.exports = {
         return homey.app.updateSettings( body );
     },
     async getScreensavers({ homey }){
-        return Object.keys(homey.app.animations);
+        return Object.values(homey.app.animations).map(a => ({id: a.opts.id, name: a.opts.title[homey.app.currentLang]}));
     },
     async setScreensaver({ homey, params }){
         const animation = homey.app.animations[`${params.id}`];

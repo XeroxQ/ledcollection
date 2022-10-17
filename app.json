@@ -1,6 +1,6 @@
 {
   "id": "openmindnl.ledcollection",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#000000",
@@ -30,7 +30,7 @@
   },
   "contributing": {
     "donate": {
-"paypal": {
+      "paypal": {
         "username": "martijnpoppen"
       },
       "bunq": {
@@ -2256,15 +2256,15 @@
       "path": "/settings/"
     },
     "setScreensaver": {
-        "method": "post",
-        "path": "/screensaver/:id",
-        "public": true
-      },
-      "getScreensavers": {
-        "method": "get",
-        "path": "/screensavers",
-        "public": true
-      }
+      "method": "post",
+      "path": "/screensaver/:id",
+      "public": true
+    },
+    "getScreensavers": {
+      "method": "get",
+      "path": "/screensavers",
+      "public": true
+    }
   },
   "permissions": [
     "homey:manager:ledring"

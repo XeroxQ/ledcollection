@@ -1,6 +1,6 @@
 {
   "id": "openmindnl.ledcollection",
-  "version": "3.0.0",
+  "version": "3.1.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#000000",
@@ -31,6 +31,9 @@
   "contributing": {
     "donate": {
       "paypal": {
+        "username": "martijnpoppen"
+      },
+      "bunq": {
         "username": "martijnpoppen"
       }
     }
@@ -2251,6 +2254,14 @@
     "settings": {
       "method": "put",
       "path": "/settings/"
+    },
+    "setScreensaver": {
+      "method": "post",
+      "path": "/screensaver/:id"
+    },
+    "getScreensavers": {
+      "method": "get",
+      "path": "/screensavers"
     }
   },
   "permissions": [

@@ -85,6 +85,7 @@ class App extends Homey.App {
   }
 
   initScreenSavers() {
+    this.animations = {};
     generatedScreensavers.sort((a, b) => a.title[currentLang].localeCompare(b.title[currentLang])).forEach(async (screensaver) => {
       const matchedScreensaver = this.appSettings.SCREENSAVERS.find(
         (s) => s.name === screensaver.id
@@ -93,10 +94,11 @@ class App extends Homey.App {
       if (matchedScreensaver && matchedScreensaver.enabled) {
         this.log(`Registering: ${screensaver.id}`);
 
-        let animation = await this.homey.ledring.createAnimation(screensaver);
+
+        this.animations[`${screensaver.id}`] = await this.homey.ledring.createAnimation(screensaver);
 
         await sleep(1000);
-        await await this.homey.ledring.registerScreensaver(screensaver.id, animation);
+        await await this.homey.ledring.registerScreensaver(screensaver.id, this.animations[`${screensaver.id}`]);
       }
     });
   }

@@ -88,5 +88,8 @@
   },
   "3.1.4": {
     "en": "FIX: compatibility for Homey 2023"
+  },
+  "3.1.5": {
+    "en": "FIX: compatibility with Homey 2023"
   }
 }

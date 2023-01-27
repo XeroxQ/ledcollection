@@ -4,17 +4,31 @@ const generatedScreensavers = require("./assets/json/generated-screensavers.json
 const { sleep, getDifference } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
+const Homey2023 = Homey.platform === 'local' && Homey.platformVersion === 2
 
 class App extends Homey.App {
   async onInit() {
-    this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
-
-    const getLanguage = this.homey.i18n.getLanguage();
-
-    this.currentLang = getLanguage === 'nl' ? 'nl' : 'en';
-
-    await this.initSettings();
-    await this.initScreenSavers();
+    try {
+        if(!Homey2023) {
+            this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
+    
+            const getLanguage = this.homey.i18n.getLanguage();
+    
+            this.currentLang = getLanguage === 'nl' ? 'nl' : 'en';
+    
+            await this.initSettings();
+            await this.initScreenSavers();
+        } else {
+            this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} not started...`);
+    
+            await this.homey.notifications.createNotification({
+                excerpt: `${this.homey.manifest.name.en} doesn't work on Homey 2023`
+            });
+        }
+    } catch (error) {
+        this.log(error)
+    }
+   
   }
 
   async initSettings() {

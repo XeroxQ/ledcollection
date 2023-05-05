@@ -1,6 +1,6 @@
 {
   "id": "openmindnl.ledcollection",
-  "version": "3.1.2",
+  "version": "3.1.5",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#000000",
@@ -278,6 +278,14 @@
       "title": {
         "en": "Stroboscope - Magenta",
         "nl": "Stroboscoop - Magenta"
+      },
+      "enabled": true
+    },
+    {
+      "name": "led_solid_black",
+      "title": {
+        "en": "Off",
+        "nl": "Uit"
       },
       "enabled": true
     },
